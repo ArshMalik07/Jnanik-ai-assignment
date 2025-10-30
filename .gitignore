@@ -1,0 +1,13 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Project Folders
+output/
+input_pdfs/
+
+# OS / IDE
+.DS_Store
+.idea/
+.vscode/
