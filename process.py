@@ -20,14 +20,6 @@ OCR_DPI = 300             # DPI for scanning pages for OCR
 HEADING_L1_THRESHOLD = 3.5  # Font size difference for H2
 HEADING_L2_THRESHOLD = 1.5  # Font size difference for H3
 
-# --- Tesseract Path (for Windows users) ---
-# If Tesseract isn't in your system's PATH, uncomment and set the path here.
-# try:
-#     pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract.exe'
-# except Exception as e:
-#     print(f"Warning: Could not set Tesseract path. Make sure it's in your system PATH. Error: {e}")
-
-
 def get_font_stats(page):
     """
     Finds the most common font size on a page to identify 'paragraph' text.
@@ -123,8 +115,6 @@ def extract_tables(pdf_path, page_num):
                 table_md_content.append(f"### Table {i+1}\n")
                 table_md_content.append(table.df.to_markdown(index=False) + "\n")
     except Exception as e:
-        # In a real project, we'd log this. For a prototype, skipping is fine.
-        # print(f"Warning: Camelot failed on page {page_num} of {pdf_path}. Error: {e}")
         pass
     return "\n".join(table_md_content)
 
